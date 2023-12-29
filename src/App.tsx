@@ -1,8 +1,13 @@
-const App = () : JSX.Element => {
+import BoardHeader from "./components/BoardHeader";
+
+const App = (): JSX.Element => {
   return (
-    <div>
-        
-    </div>
+    <section id="board">
+      <div id="board__container">
+        {/* ============header du plateau============ */}
+        <BoardHeader />
+      </div>
+    </section>
   );
 };
 
