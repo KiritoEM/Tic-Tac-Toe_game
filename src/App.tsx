@@ -1,4 +1,5 @@
 import BoardBody from "./components/BoardBody";
+import BoardFooter from "./components/BoardFooter";
 import BoardHeader from "./components/BoardHeader";
 
 const App = (): JSX.Element => {
@@ -8,6 +9,7 @@ const App = (): JSX.Element => {
         {/* ============header du plateau============ */}
         <BoardHeader />
         <BoardBody />
+        <BoardFooter />
       </div>
     </section>
   );
