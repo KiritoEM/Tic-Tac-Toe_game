@@ -1,22 +1,31 @@
 import { useState } from "react";
 import BoardSquare from "./BoardSquare";
+import CurrentUser from "../helper/CurrentUser";
 
-type Player = 1 | 2 | null;
+export type Player = 1 | 2 | 0;
 
 const BoardBody = (): JSX.Element => {
+  const { getCurrentPlayer } = CurrentUser();
+
   const defaultBoard: Player[][] = [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
   ];
 
   const [board, setBoard] = useState<Player[][]>(defaultBoard);
-  const [currentPlayer, setCurrentPlayer] = useState<number>(1);
 
-  const getCurrentPlayer = (): number => {
-    currentPlayer===1 ? setCurrentPlayer(2) : setCurrentPlayer(1);
-    return currentPlayer;
+  if (board) {
+    console.log("board: ", board);
+  }
+
+  const handleSquareClick = (row: number, col: number) => {
+    //add shallow copy of board matrix
+    const newBoard = [...board];
+    newBoard[row][col] = getCurrentPlayer();
+    setBoard(newBoard);
   };
+
   return (
     <section id="board__body">
       {board.map((row, rowIndex) => (
@@ -26,6 +35,7 @@ const BoardBody = (): JSX.Element => {
               key={colIndex}
               value={value}
               getPlayer={getCurrentPlayer}
+              squareClick={() => handleSquareClick(rowIndex, colIndex)}
             />
           ))}
         </div>
