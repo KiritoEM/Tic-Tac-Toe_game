@@ -15,7 +15,7 @@
 
     .turn {
         &__content {
-            background-color: #23252C;
+            background-color: $color-1;
             display: flex;
             align-items: center;
             gap: 14px;
@@ -23,7 +23,7 @@
             border-radius: 7px;
 
             p {
-                color: #A3AECA;
+                color: $color-2;
                 margin-bottom: 0;
                 font-weight: 500;
                 margin-top: 4px;
@@ -33,7 +33,7 @@
 
     .restart-game {
         &__content {
-            background-color: #A3AECA;
+            background-color: $color-2;
             display: flex;
             align-items: center;
             gap: 14px;

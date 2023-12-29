@@ -1,0 +1,22 @@
+#board__body {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .section-1,
+    .section-2,
+    .section-3 {
+        display: flex;
+        gap: 6%;
+    }
+
+    .board-square {
+        background-color: $color-1;
+        width: 7.3rem;
+        height: 6.2rem;
+        border-radius: 7px;
+        margin-bottom: 6%;
+    }
+}

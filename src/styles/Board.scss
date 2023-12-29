@@ -1,6 +1,7 @@
-@import "./board-modules/BoardHeader.scss";
+@import "./board-modules/Board-body.scss";
+@import "./board-modules/Board-header.scss";
 
-#board{
+#board {
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -8,9 +9,9 @@
     align-items: center;
     justify-content: center;
 
-    &__container{
-        width: auto;
+    &__container {
+        width: max-content;
         height: max-content;
-        padding : 1.4rem;
+        padding: 1.4rem;
     }
 }
