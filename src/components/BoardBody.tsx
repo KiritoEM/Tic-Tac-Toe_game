@@ -1,21 +1,24 @@
+import { useState } from "react";
+import BoardSquare from "./BoardSquare";
+
+type Player = 1 | 2 | null;
+
 const BoardBody = (): JSX.Element => {
+  const defaultBoard: Player[][] = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+  ];
+  const [board, setBoard] = useState<Player[][]>(defaultBoard);
   return (
     <section id="board__body">
-      <div className="section-1">
-        <div className="board-square"></div>
-        <div className="board-square"></div>
-        <div className="board-square"></div>
-      </div>
-      <div className="section-2">
-        <div className="board-square"></div>
-        <div className="board-square"></div>
-        <div className="board-square"></div>
-      </div>
-      <div className="section-3">
-        <div className="board-square"></div>
-        <div className="board-square"></div>
-        <div className="board-square"></div>
-      </div>
+      {board.map((row, rowIndex) => (
+        <div key={rowIndex} className={`section-${rowIndex + 1}`}>
+          {row.map((value, colIndex) => (
+            <BoardSquare key={colIndex} />
+          ))}
+        </div>
+      ))}
     </section>
   );
 };

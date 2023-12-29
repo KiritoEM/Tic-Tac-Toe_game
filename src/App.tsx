@@ -8,7 +8,11 @@ const App = (): JSX.Element => {
       <div id="board__container">
         {/* ============header du plateau============ */}
         <BoardHeader />
+
+        {/* ============body du plateau============ */}
         <BoardBody />
+
+        {/* ============footer du plateau============ */}
         <BoardFooter />
       </div>
     </section>
