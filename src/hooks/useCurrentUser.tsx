@@ -10,7 +10,6 @@ interface IContext {
   getCurrentPlayer: () => Player;
 }
 
-// Créez le contexte
 const CurrentUserContext = createContext<IContext | null>(null);
 
 // Créez le fournisseur qui englobe votre application
@@ -30,12 +29,11 @@ export const CurrentUserProvider = ({ children }: Ichildren) => {
   );
 };
 
-// Utilisez cette fonction pour accéder à la valeur dans vos composants
 // eslint-disable-next-line react-refresh/only-export-components
 export const useCurrentUser = (): IContext => {
   const context = useContext(CurrentUserContext);
-  if (context === undefined) {
-    throw new Error("useCurrentUser must be used within a CurrentUserProvider");
+  if (!context) {
+    throw new Error("useContenxt must be used within an AppProvider");
   }
   return context;
 };

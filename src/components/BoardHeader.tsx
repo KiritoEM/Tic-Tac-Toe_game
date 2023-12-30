@@ -2,17 +2,26 @@ import Board from "../helper/Board";
 import { useCurrentUser } from "../hooks/useCurrentUser";
 import { Player } from "./BoardBody";
 
-// interface Iturn{
-//   getPlayer: () => number;
-// }
-
 const BoardHeader = (): JSX.Element => {
   const { currentPlayer } = useCurrentUser();
+  const { setBoard } = Board();
 
   if (currentPlayer) {
     console.log("player: ", currentPlayer);
   }
   const { getSquare } = Board();
+
+  const clearBoard = () => {
+    const newEmptyBoard: Player[][] = [
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0],
+    ];
+
+    setBoard(newEmptyBoard);
+
+    window.location.reload();
+  };
 
   return (
     <section id="board__header">
@@ -29,7 +38,7 @@ const BoardHeader = (): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className="restart-game">
+      <div className="restart-game" onClick={clearBoard}>
         <div className="restart-game__content">
           <div className="img">
             <img src="/restart.png" alt="" />

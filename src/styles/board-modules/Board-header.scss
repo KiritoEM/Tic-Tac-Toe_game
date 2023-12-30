@@ -29,13 +29,15 @@
                 margin-top: 4px;
             }
 
-            img{
+            img {
                 width: 25px;
             }
         }
     }
 
     .restart-game {
+        cursor: pointer;
+
         &__content {
             background-color: $color-2;
             display: flex;
