@@ -1,21 +1,24 @@
 import BoardBody from "./components/BoardBody";
 import BoardFooter from "./components/BoardFooter";
 import BoardHeader from "./components/BoardHeader";
+import { CurrentUserProvider } from "./hooks/useCurrentUser";
 
 const App = (): JSX.Element => {
   return (
-    <section id="board">
-      <div id="board__container">
-        {/* ============header du plateau============ */}
-        <BoardHeader />
+    <CurrentUserProvider>
+      <section id="board">
+        <div id="board__container">
+          {/* ============header du plateau============ */}
+          <BoardHeader />
 
-        {/* ============body du plateau============ */}
-        <BoardBody />
+          {/* ============body du plateau============ */}
+          <BoardBody />
 
-        {/* ============footer du plateau============ */}
-        <BoardFooter />
-      </div>
-    </section>
+          {/* ============footer du plateau============ */}
+          <BoardFooter />
+        </div>
+      </section>
+    </CurrentUserProvider>
   );
 };
 

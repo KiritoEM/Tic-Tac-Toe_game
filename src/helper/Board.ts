@@ -10,9 +10,27 @@ export default function Board() {
 
   const [board, setBoard] = useState<Player[][]>(defaultBoard);
 
-  if (board) {
-    console.log("board: ", board);
-  }
+  const getSquare = (player: Player): string => {
+    switch (player) {
+      case 1:
+        return "/croix.png";
+      case 2:
+        return "/circle.png";
+      default:
+        return "";
+    }
+  };
 
-  return { board, setBoard };
+  const squareTurn = (player: Player): string => {
+    switch (player) {
+      case 1:
+        return "/turn-croix.png";
+      case 2:
+        return "/turn-rond.png";
+      default:
+        return "";
+    }
+  };
+
+  return { board, setBoard, getSquare, squareTurn };
 }

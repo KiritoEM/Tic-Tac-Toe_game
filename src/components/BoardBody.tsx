@@ -1,11 +1,11 @@
 import BoardSquare from "./BoardSquare";
-import CurrentUser from "../helper/CurrentUser";
+import { useCurrentUser } from "../hooks/useCurrentUser";
 import Board from "../helper/Board";
 
 export type Player = 1 | 2 | 0;
 
 const BoardBody = (): JSX.Element => {
-  const { getCurrentPlayer } = CurrentUser();
+  const { getCurrentPlayer } = useCurrentUser();
   const { board, setBoard } = Board();
 
   const handleSquareClick = (row: number, col: number) => {
@@ -22,8 +22,7 @@ const BoardBody = (): JSX.Element => {
           {row.map((value, colIndex) => (
             <BoardSquare
               key={colIndex}
-              value={value}
-              getPlayer={getCurrentPlayer}
+              currentPlayer={value}
               squareClick={() => handleSquareClick(rowIndex, colIndex)}
             />
           ))}

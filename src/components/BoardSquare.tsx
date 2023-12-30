@@ -1,37 +1,25 @@
 import { Player } from "./BoardBody";
+import Board from "../helper/Board";
 
 interface Iaction {
-  getPlayer: () => number;
   squareClick: () => void;
-  value: number | null;
+  currentPlayer: number | null;
 }
 
 const BoardSquare = ({
-  value,
-  getPlayer,
+  currentPlayer,
   squareClick,
 }: Iaction): JSX.Element => {
-  const getImageSource = (player: Player): string => {
-    switch (player) {
-      case 1:
-        return "/croix.png";
-      case 2:
-        return "/circle.png";
-      default:
-        return "";
-    }
-  };
+  const { getSquare } = Board();
   return (
     <div
       className="board-square"
       onClick={() => {
-        console.log("value: ", value);
-        console.log("current-player : ", getPlayer());
         squareClick();
       }}
     >
       <div>
-        <img src={getImageSource(value as Player)} alt="" />
+        <img src={getSquare(currentPlayer as Player)} alt="" />
       </div>
     </div>
   );
