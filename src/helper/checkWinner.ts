@@ -1,4 +1,3 @@
-import Board from "./Board";
 import { Player } from "../components/BoardBody";
 
 interface WinnerResult {

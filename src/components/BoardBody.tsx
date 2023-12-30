@@ -2,7 +2,7 @@ import BoardSquare from "./BoardSquare";
 import { useCurrentUser } from "../hooks/useCurrentUser";
 import Board from "../helper/Board";
 import checkWinner from "../helper/checkWinner";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export type Player = 1 | 2 | 0;
 
