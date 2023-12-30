@@ -23,9 +23,18 @@
         align-items: center;
         justify-content: center;
 
+        @include screen(small) {
+             width: 6.2rem;
+             height: 5rem;
+        }
+
         div {
             img {
                 width: 46px;
+
+                @include screen(small){
+                    width: 35px;
+                }
             }
         }
     }

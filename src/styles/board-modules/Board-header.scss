@@ -6,10 +6,18 @@
     gap: 45px;
     width: 100%;
 
+    @include screen(small){
+        gap: 3%;
+    }
+
     .icons {
         img {
             width: 70px;
             object-fit: contain;
+
+            @include screen(small){
+                width: 60px;
+            }
         }
     }
 
@@ -31,6 +39,10 @@
 
             img {
                 width: 25px;
+
+                @include screen(small){
+                    width: 20px;
+                }
             }
         }
     }
