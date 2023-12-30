@@ -5,10 +5,6 @@ import { Player } from "./BoardBody";
 const BoardHeader = (): JSX.Element => {
   const { currentPlayer } = useCurrentUser();
   const { setBoard } = Board();
-
-  if (currentPlayer) {
-    console.log("player: ", currentPlayer);
-  }
   const { getSquare } = Board();
 
   const clearBoard = () => {

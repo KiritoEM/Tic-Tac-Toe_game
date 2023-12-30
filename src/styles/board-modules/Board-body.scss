@@ -22,17 +22,22 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 5px 4.4px #313131;
 
         @include screen(small) {
-             width: 6.2rem;
-             height: 5rem;
+            width: 6rem;
+            height: 5rem;
+        }
+
+        @include screen-x(284px , 330px) {
+            width: 5.8rem;
         }
 
         div {
             img {
-                width: 46px;
+                width: 41px;
 
-                @include screen(small){
+                @include screen(small) {
                     width: 35px;
                 }
             }

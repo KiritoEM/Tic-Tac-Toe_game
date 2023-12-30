@@ -10,6 +10,10 @@ const BoardBody = (): JSX.Element => {
   const { CalculateWinner } = checkWinner();
   const { getCurrentPlayer } = useCurrentUser();
   const { board, setBoard } = Board();
+  const [count, setCount] = useState<number>(0);
+  if (count) {
+    console.log(count);
+  }
 
   const handleSquareClick = (row: number, col: number) => {
     //add shallow copy of board matrix
@@ -23,11 +27,18 @@ const BoardBody = (): JSX.Element => {
 
   const winner = CalculateWinner(board.flat());
 
-  if (winner.winner !== null && winner.winningSquares !== null) {
+  if (count === 9 && winner.winner === null && winner.winningSquares === null) {
     setTimeout(() => {
-      alert(`Partie terminée ! , joueur gagnant : Joueur${winner.winner}`);
+      alert(`Partie terminée ! Egalité entre les deux joueurs`);
       window.location.reload();
-    }, 500);
+    }, 300);
+  } else {
+    if (winner.winner !== null && winner.winningSquares !== null) {
+      setTimeout(() => {
+        alert(`Partie terminée ! , joueur gagnant : Joueur${winner.winner}`);
+        window.location.reload();
+      }, 300);
+    }
   }
 
   return (
@@ -39,6 +50,7 @@ const BoardBody = (): JSX.Element => {
               key={colIndex}
               currentPlayer={value}
               squareClick={() => handleSquareClick(rowIndex, colIndex)}
+              count={() => setCount(count + 1)}
             />
           ))}
         </div>

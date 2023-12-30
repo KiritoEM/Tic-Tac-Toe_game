@@ -4,11 +4,13 @@ import Board from "../helper/Board";
 interface Iaction {
   squareClick: () => void;
   currentPlayer: number | null;
+  count: () => void;
 }
 
 const BoardSquare = ({
   currentPlayer,
   squareClick,
+  count,
 }: Iaction): JSX.Element => {
   const { getSquare } = Board();
   return (
@@ -16,6 +18,7 @@ const BoardSquare = ({
       className="board-square"
       onClick={() => {
         squareClick();
+        count();
       }}
     >
       <div>
