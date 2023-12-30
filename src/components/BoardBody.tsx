@@ -1,23 +1,12 @@
-import { useState } from "react";
 import BoardSquare from "./BoardSquare";
 import CurrentUser from "../helper/CurrentUser";
+import Board from "../helper/Board";
 
 export type Player = 1 | 2 | 0;
 
 const BoardBody = (): JSX.Element => {
   const { getCurrentPlayer } = CurrentUser();
-
-  const defaultBoard: Player[][] = [
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-  ];
-
-  const [board, setBoard] = useState<Player[][]>(defaultBoard);
-
-  if (board) {
-    console.log("board: ", board);
-  }
+  const { board, setBoard } = Board();
 
   const handleSquareClick = (row: number, col: number) => {
     //add shallow copy of board matrix

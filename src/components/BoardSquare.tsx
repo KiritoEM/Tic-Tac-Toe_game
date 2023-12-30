@@ -1,3 +1,5 @@
+import { Player } from "./BoardBody";
+
 interface Iaction {
   getPlayer: () => number;
   squareClick: () => void;
@@ -9,6 +11,16 @@ const BoardSquare = ({
   getPlayer,
   squareClick,
 }: Iaction): JSX.Element => {
+  const getImageSource = (player: Player): string => {
+    switch (player) {
+      case 1:
+        return "/croix.png";
+      case 2:
+        return "/circle.png";
+      default:
+        return "";
+    }
+  };
   return (
     <div
       className="board-square"
@@ -17,7 +29,11 @@ const BoardSquare = ({
         console.log("current-player : ", getPlayer());
         squareClick();
       }}
-    ></div>
+    >
+      <div>
+        <img src={getImageSource(value as Player)} alt="" />
+      </div>
+    </div>
   );
 };
 

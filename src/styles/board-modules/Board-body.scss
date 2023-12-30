@@ -19,5 +19,14 @@
         border-radius: 7px;
         margin-bottom: 6%;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        div {
+            img {
+                width: 46px;
+            }
+        }
     }
 }
