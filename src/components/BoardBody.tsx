@@ -2,6 +2,7 @@ import BoardSquare from "./BoardSquare";
 import { useCurrentUser } from "../hooks/useCurrentUser";
 import Board from "../helper/Board";
 import checkWinner from "../helper/checkWinner";
+import { useEffect, useState } from "react";
 
 export type Player = 1 | 2 | 0;
 
@@ -22,8 +23,11 @@ const BoardBody = (): JSX.Element => {
 
   const winner = CalculateWinner(board.flat());
 
-  if (winner) {
-    console.log("winner : ", winner);
+  if (winner.winner !== null && winner.winningSquares !== null) {
+    setTimeout(() => {
+      alert(`Partie terminée ! , joueur gagnant : Joueur${winner.winner}`);
+      window.location.reload();
+    }, 500);
   }
 
   return (
