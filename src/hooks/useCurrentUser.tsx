@@ -12,7 +12,6 @@ interface IContext {
 
 const CurrentUserContext = createContext<IContext | null>(null);
 
-// Créez le fournisseur qui englobe votre application
 export const CurrentUserProvider = ({ children }: Ichildren) => {
   const [currentPlayer, setCurrentPlayer] = useState<Player>(1);
 
